@@ -11,5 +11,4 @@ RSpec.describe "Enumerable" do
             expect([1, 2, 3].my_each).to  be_a(Enumerator)
         end
     end
-    
 end
