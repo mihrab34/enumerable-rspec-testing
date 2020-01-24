@@ -82,10 +82,25 @@ RSpec.describe "Enumerable" do
         it "returns the number of elements of an array" do
             expect([1, 2, 3, 4, 5, 8].my_count).to  eql(6)
         end
-        
-
     end
-    
-    
 
+    describe '#my_map' do
+        it 'returns new array with the results of running block once for every elements in the array' do
+            [1, 2, 3, 4].my_map { |x| arr << x * x }
+            expect(arr).to eql([1, 4, 9, 16])
+        end
+        it 'returns Enumerator when no block is given' do
+           expect([1, 2, 3, 4].my_map).to be_a(Enumerator)
+        end
+    end
+
+    describe "#my_imject" do
+        it 'returns combined elements by applying binary operation specified by block when initial value is given' do
+            expect([4, 5, 6, 7, 8, 9, 10].my_inject(0) { |sum, x| sum + x }).to eql(49)
+        end
+
+        it 'takes first element as initial value' do
+            expect([4, 5, 6, 7, 8, 9, 10].my_inject(:+)).to eql(49)
+        end  
+    end
 end
