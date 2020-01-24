@@ -94,7 +94,7 @@ RSpec.describe "Enumerable" do
         end
     end
 
-    describe "#my_imject" do
+    describe "#my_inject" do
         it 'returns combined elements by applying binary operation specified by block when initial value is given' do
             expect([4, 5, 6, 7, 8, 9, 10].my_inject(0) { |sum, x| sum + x }).to eql(49)
         end
